@@ -1,0 +1,61 @@
+{
+  "_remark": {
+    "modelConfig":  "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig": "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":   "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig": "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":   "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "sensorMap":    "【伪装参数】传感器类型可选值及对应含义",
+    "hookConfig.sensorList": "伪装的传感器信息对象的数组。其中：值为传感器信息对象，信息对象的键名为传感器对象的属性名，信息对象的键值为属性值",
+    "hookConfig.valueList":  "伪装的传感器数据数组的对象。其中：键名为传感器类型，键值为对应传感器数据数组，数组值为伪装的数值或以'eval:'开始的计算表达式"
+  },
+  "modelConfig": {
+    "sensorList": [
+      {"mType":  1, "mName": "xxxx", "mVendor": "abc", "mVersion":  2010, "mFlags": 1234, "mId": 12343},
+      {"mType":  2, "mName": "yyyy", "mVendor": "def", "mVersion":  2010, "mFlags": 1234, "mId": 12343}
+    ]
+  },
+  "randomConfig": {
+    "valueList": {
+      "1": ["eval: random(-0.05, 0.05, 8)", "eval: random(5.0, 8.0, 8)", "eval: random(4.0, 6.0, 8)"],
+      "2": ["eval: random(-100, -140, 8)", "eval: random(-10, -10, 8)", "eval: random(-240, -260, 8)"]
+    }
+  },
+  "sensorMap": {
+    "1": "android.sensor.accelerometer",
+    "2": "android.sensor.magnetic_field",
+    "3": "android.sensor.orientation",
+    "4": "android.sensor.gyroscope",
+    "5": "android.sensor.light",
+    "6": "android.sensor.pressure",
+    "7": "android.sensor.temperature",
+    "8": "android.sensor.proximity",
+    "9": "android.sensor.gravity",
+    "10": "android.sensor.linear_acceleration",
+    "11": "android.sensor.rotation_vector",
+    "12": "android.sensor.relative_humidity",
+    "13": "android.sensor.ambient_temperature",
+    "14": "android.sensor.magnetic_field_uncalibrated",
+    "15": "android.sensor.game_rotation_vector",
+    "16": "android.sensor.gyroscope_uncalibrated",
+    "17": "android.sensor.significant_motion",
+    "18": "android.sensor.step_detector",
+    "19": "android.sensor.step_counter",
+    "20": "android.sensor.geomagnetic_rotation_vector",
+    "21": "android.sensor.heart_rate",
+    "22": "android.sensor.tilt_detector",
+    "23": "android.sensor.wake_gesture",
+    "24": "android.sensor.glance_gesture",
+    "25": "android.sensor.pick_up_gesture",
+    "26": "android.sensor.wrist_tilt_gesture",
+    "27": "android.sensor.device_orientation",
+    "28": "android.sensor.pose_6dof",
+    "29": "android.sensor.stationary_detect",
+    "30": "android.sensor.motion_detect",
+    "31": "android.sensor.heart_beat",
+    "32": "android.sensor.dynamic_sensor_meta",
+    "34": "android.sensor.low_latency_offbody_detect",
+    "35": "android.sensor.accelerometer_uncalibrated",
+    "-1": "all"
+  }
+}

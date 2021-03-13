@@ -1,0 +1,27 @@
+{
+  "_remark": {
+    "hookConfig":   "【伪装参数】拦截/伪装的参数配置对象",
+    "unhookAction": "【探测参数】不拦截的消息Action的数组",
+    "unhookMime":   "【探测参数】不拦截的消息Mime的数组",
+    "unhookSchema": "【探测参数】不拦截的消息Schema的数组",
+    "hookConfig.action": "针对消息Action的伪装配置对象。其中：键名为消息的Action名称，键值为消息内容的伪装配置对象。伪装配置对象的键名为对应Extra的名称，伪装配置对象的键值为对应Extra的值或以'eval:'开始的计算表达式，表达式中变量v为Extra值的集合",
+    "hookConfig.mime":   "针对消息Mime的伪装配置对象。其中：键名为消息的Category名称，键值为消息内容的伪装配置对象。伪装配置对象的键名为对应Extra的名称，伪装配置对象的键值为对应Extra的值或以'eval:'开始的计算表达式，表达式中变量v为Extra值的集合",
+    "hookConfig.schema": "针对消息Schema的伪装配置对象。其中：键名为消息的Schema名称，键值为消息内容的伪装配置对象。伪装配置对象的键名为对应Extra的名称，伪装配置对象的键值为对应Extra的值或以'eval:'开始的计算表达式，表达式中变量v为Extra值的集合"
+  },
+  "hookConfig": {
+    "action": {
+      "android.intent.action.BATTERY_CHANGED": {
+        "plugged": ["int", 0],
+        "status": ["int", 3],
+        "health": ["int", 2],
+        "scale": ["int", 100],
+        "level": ["int", "eval: trunc(sequence('level', random(70, 100), -0.05, 30))"],
+        "voltage": ["int", "eval: trunc(sequence('vol', random(4000, 5000), -1, 1000))"]
+      }
+    },
+    "mime": {
+    },
+    "schema": {
+    }
+  }
+}

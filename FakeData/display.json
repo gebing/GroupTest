@@ -1,0 +1,35 @@
+{
+  "_remark": {
+    "_remark1":      "由于改变屏幕分辨率会造成显示不正常，请谨慎使用伪装屏幕分辨率的功能，建议将metrics设置为null关闭伪装操作",
+    "_remark2":      "如果需要使用伪装屏幕分辨率的功能，为避免出现ANR错误，建议将hookClasses和unhookClasses设置都为null关闭拦截Java类判断",
+    "modelConfig":   "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig":  "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":    "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig":  "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":    "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "hookClasses":   "【伪装参数】拦截并伪装数据的Java调用类的配置数组。如果为null或空，则表示拦截所有请求。其中：值为Java类全名包含的字符串或以'eval:'开始的正则表达式",
+    "hookDepth":     "【伪装参数】拦截并伪装数据的Java调用堆栈的深度。程序只匹配指定深度内Java调用类",
+    "unhookClasses": "【探测参数】不拦截的Java调用类的配置数组。如果为null或空，则表示不拦截操作失效。其中：值为Java类全名包含的字符串或以'eval:'开始的正则表达式",
+    "unhookDepth":   "【探测参数】不拦截的Java调用堆栈的深度。程序只匹配指定深度内Java调用类",
+    "hookConfig.metrics": "伪装的屏幕分辨率配置对象。其中：键名为属性名称，键值为伪装值",
+    "hookConfig.openGL":  "伪装的OpenGL配置对象。其中：键名为属性名称或属性ID值，键值为伪装值"
+  },
+  "modelConfig": {
+    "metrics": {
+      "widthPixels": 720,
+      "heightPixels": 1280,
+      "densityDpi": 320,
+      "density": 2.0,
+      "scaledDensity": 1.8,
+      "xdpi": 320.0,
+      "ydpi": 320.0
+    },
+    "openGL": {
+      "GL_VENDOR": "Vendor",
+      "GL_RENDERER": "Render",
+      "GL_VERSION": "1.0"
+    }
+  },
+  "hookClasses": [],
+  "hookDepth": 5
+}

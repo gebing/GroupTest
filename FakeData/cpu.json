@@ -1,0 +1,39 @@
+{
+  "_remark": {
+    "modelConfig":  "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig": "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":   "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig": "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":   "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "fileConfig":   "【伪装参数】伪装文件和目录的配置",
+    "hookConfig.processor":    "伪装的CPU类型",
+    "hookConfig.hardware":     "伪装的CPU厂商",
+    "hookConfig.count":        "伪装的CPU数量",
+    "hookConfig.freq":         "伪装的CPU最大频率",
+    "hookConfig.mem":          "伪装的内存数量",
+    "hookConfig.cache":        "伪装的Cache参数",
+    "fileConfig.hookFileMap":  "伪装文件的配置对象，键名为原始文件的全路径或名称，键值为伪装文件的相对路径，null表示伪装文件不存在",
+    "fileConfig.hookFileData": "伪装文件的内容对象，键名为伪装文件的相对路径，键值为伪装文件的内容，null表示不写入伪装文件",
+    "fileConfig.hideFileMap":  "隐藏文件的配置对象，键名为原始文件的全路径的包含内容，键值为是否隐藏匹配的文件"
+  },
+  "modelConfig": {
+    "processor": "AArch64 Processor rev 5 (aarch64)",
+    "hardware": "Qualcomm Technologies, Inc MRA58K",
+    "count": "4",
+    "freq": "1008000",
+    "mem": "1494700032",
+    "cache": {
+        "1": "d: 8 16K, 464, 64 lines, shdby 1",
+        "2": "d: 161024, 64 lines, shdby 8",
+        "i1": "i: 8 16K, 2128, 64 lines, shdby 1"
+    }
+  },
+  "fileConfig": {
+    "hookFileMap": {
+      "/proc/cpuinfo": "cpuinfo"
+    },
+    "hookFileData": {
+      "cpuinfo": "Processor\t: AArch64 Processor rev 4 (aarch64)\nprocessor\t: 0\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd03\nCPU revision\t: 4\n\nprocessor\t: 1\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd03\nCPU revision\t: 4\n\nprocessor\t: 2\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd03\nCPU revision\t: 4\n\nprocessor\t: 3\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd03\nCPU revision\t: 4\n\nHardware\t: Qualcomm Technologies, Inc MSM8953\n"
+    }
+  }
+}

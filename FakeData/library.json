@@ -1,0 +1,11 @@
+{
+  "_remark": {
+    "hookNative": "【通用参数】是否拦截Native的dlopen函数。一般为true",
+    "hookJava":   "【探测参数】是否拦截Java的loadLibrary函数",
+    "hookLibs":   "【伪装参数】拦截且不加载的so模块的配置数组。其中：值为so模块全路径包含的字符串或以'eval:'开始的正则表达式",
+    "unhookLibs": "【探测参数】不拦截的so模块的配置数组。其中：值为so模块全路径包含的字符串或以'eval:'开始的正则表达式"
+  },
+  "hookNative": 1,
+  "hookJava": 0,
+  "hookLibs": []
+}

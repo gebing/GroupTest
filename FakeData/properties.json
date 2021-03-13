@@ -1,0 +1,141 @@
+{
+  "_remark": {
+    "_remark1":     "由于system_property_get函数是系统级函数，改变其返回值会造成安卓系统工作异常，因此在伪装模式下必须指定hookLibs以限定改变返回值的范围",
+    "commonConfig": "【伪装参数】通用缺省信息，即所有手机型号的通用缺省信息",
+    "modelConfig":  "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig": "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":   "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig": "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":   "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "fileConfig":   "【伪装参数】伪装文件和目录的配置",
+    "cmdConfig":    "【伪装参数】伪装Shell命令的配置",
+    "buildConfig":  "【伪装参数】修改Build类静态变量值的设置。其中：键名为Build类的属性名，键值为属性值或以'eval:'开始的计算表达式，表达式中变量v为伪装系统属性对象",
+    "hookLibs":     "【伪装参数】拦截伪装的调用system_property_get函数的so模块的配置数组。其中：值为不包含路径的so模块名，如：'libc.so'",
+    "unhookLibs":   "【探测参数】不拦截的调用system_property_get函数的so模块的配置数组。其中：值为不包含路径的so模块名，如：'libc.so'",
+    "unhookProps":  "【探测参数】不拦截的调用system_property_get函数的属性名的配置数组。其中：值为属性的全名，如：'ro.hardware'",
+    "hookConfig.default.prop": "伪装属于文件'/default.prop'的系统属性的伪装配置",
+    "hookConfig.build.prop":   "伪装属于文件'/system/default.prop'的系统属性的伪装配置",
+    "hookConfig.boot":         "伪装属于系统boot参数的系统属性的伪装配置",
+    "hookConfig.telephony":    "伪装属于系统telephony参数的系统属性的伪装配置",
+    "hookConfig.other":        "伪装属于其他系统属性的伪装配置",
+    "fileConfig.hookFileMap":  "伪装文件的配置对象，键名为原始文件的全路径或名称，键值为伪装文件的相对路径，null表示伪装文件不存在",
+    "fileConfig.hookFileData": "伪装文件的内容对象，键名为伪装文件的相对路径，键值为伪装文件的内容，null表示不写入伪装文件",
+    "fileConfig.hideFileMap":  "隐藏文件的配置对象，键名为原始文件的全路径的包含内容，键值为是否隐藏匹配的文件",
+    "cmdConfig.hookCmdMap":    "伪装Shell命令的配置对象。其中：键名为shell命令的匹配条件，键值为shell命令的伪装命令。以'eval:'开始的字符串为计算表达式，表达式中变量v为命令行字符串，变量cmd为命令行数组",
+    "cmdConfig.hookTimeout":   "执行Shell命令的超时时间。单位：毫秒。由于Frida执行Shell命令可能被卡死，超时未开始执行的命令会被杀死"
+  },
+  "commonConfig":{
+    "default.prop": {
+      "ro.secure": "1",
+      "ro.debuggable": "0"
+    },
+    "other": {
+      "sys.usb.state": "mtp",
+      "service.adb.root": "0",
+      "http.proxy": "",
+      "net.eth0.gw": null,
+      "net.gprs.local-ip": null,
+      "persist.sys.country": null,
+      "persist.sys.language": null,
+      "ro.kernel.qemu": null,
+      "ro.kernel.androidboot.hardware": null
+    }
+  },
+  "modelConfig": {
+    "boot": {
+      "ro.bootloader": "unknown",
+      "ro.hardware": "mt6735",
+      "ro.boot.baseband": "msm",
+      "ro.boot.bootloader": null,
+      "ro.boot.hardware": "mt6735"
+    },
+    "build.prop": {
+      "ro.product.brand": "EYU",
+      "ro.product.name": "EYU T5",
+      "ro.product.model": "EYU T5",
+      "ro.product.device": "ali6737m_35g_m0",
+      "ro.product.board": "msm8953",
+      "ro.product.manufacturer": "EYU",
+      "ro.product.cpu.abilist": "arm64-v8a,armeabi-v7a,armeabi",
+      "ro.product.cpu.abilist32": "armeabi-v7a,armeabi",
+      "ro.product.cpu.abilist64": "arm64-v8a",
+      "ro.board.platform": "Qualcomm Technologies, Inc SDM660"
+    },
+    "other": {
+      "http.agent": "",
+      "gsm.version.baseband": "EYU"
+    }
+  },
+  "systemConfig": {
+    "build.prop": {
+      "ro.build.id": "MRA58K",
+      "ro.build.selinux": "1",
+      "ro.build.user": "builder",
+      "ro.build.host": "PC",
+      "ro.build.tags": "release-keys",
+      "ro.build.TAGs": null,
+      "ro.build.type": "user",
+      "ro.build.product": "ali6737m_35g_m0",
+      "ro.build.description": "unknown",
+      "ro.build.fingerprint": "EYU/full_ali6737m_35g_m0/ali6737m_35g_m0:6.0/MRA58K/1518026695:user/release-keys",
+      "ro.build.date.utc": "1452715731",
+      "ro.build.display.id": "MRA58K release-keys",
+      "ro.build.version.sdk": "23",
+      "ro.build.version.release": "5.0.2",
+      "ro.build.version.codename": "REL",
+      "ro.build.version.incremental": "1518026695"
+    }
+  },
+  "userConfig": {
+    "boot": {
+      "ro.serialno": "U88LSKGEZ995FQJZ",
+      "ro.boot.serialno": "U88LSKGEZ995FQJZ"
+    },
+    "telephony": {
+      "net.hostname": "MyPhone",
+      "gsm.serial": "8K703Y026757",
+      "gsm.device.sn": null,
+      "gsm.device.psn": null
+    }
+  },
+  "buildConfig": {
+    "SERIAL": "eval: s(v['ro.serialno'])",
+    "HARDWARE": "eval: s(v['ro.hardware'])",
+    "BOOTLOADER": "eval: s(v['ro.bootloader'])",
+    "RADIO": "eval: s(v['gsm.version.baseband'])",
+    "ID": "eval: s(v['ro.build.id'])",
+    "USER": "eval: s(v['ro.build.user'])",
+    "HOST": "eval: s(v['ro.build.host'])",
+    "TYPE": "eval: s(v['ro.build.type'])",
+    "TAGS": "eval: s(v['ro.build.tags'])",
+    "FINGERPRINT": "eval: s(v['ro.build.fingerprint'])",
+    "DISPLAY": "eval: s(v['ro.build.display.id'])",
+    "TIME": "eval: ifNaN(1000 * v['ro.build.date.utc'])",
+    "VERSION.SDK": "eval: s(v['ro.build.version.sdk'])",
+    "VERSION.SDK_INT": "eval: ifNaN(+v['ro.build.version.sdk'])",
+    "VERSION.RELEASE": "eval: s(v['ro.build.version.release'])",
+    "VERSION.CODENAME": "eval: s(v['ro.build.version.codename'])",
+    "VERSION.INCREMENTAL": "eval: s(v['ro.build.version.incremental'])",
+    "PRODUCT": "eval: s(v['ro.product.name'])",
+    "MODEL": "eval: s(v['ro.product.model'])",
+    "BOARD": "eval: s(v['ro.product.board'])",
+    "BRAND": "eval: s(v['ro.product.brand'])",
+    "DEVICE": "eval: s(v['ro.product.device'])",
+    "MANUFACTURER": "eval: s(v['ro.product.manufacturer'])",
+    "CPU_ABI": "eval: v = v[is64Bit() ? 'ro.product.cpu.abilist64' : 'ro.product.cpu.abilist32']; isNone(v) ? v : Object.get(split(v, ','), 0) || ''",
+    "CPU_ABI2": "eval: v = v[is64Bit() ? 'ro.product.cpu.abilist64' : 'ro.product.cpu.abilist32']; isNone(v) ? v : Object.get(split(v, ','), 1) || ''"
+  },
+  "hookLibs": [],
+  "fileConfig": {
+    "hookFileMap": {
+      "/default.prop": "default.prop",
+      "/system/build.prop": "build.prop"
+    }
+  },
+  "cmdConfig": {
+    "hookCmdMap": {
+      "eval: matchCmd(v, 'getprop ')": "eval: patchCmd(cmd, patchChangeArgs('echo', prop))",
+      "eval: matchCmd(v, 'getprop$')": "eval: ['cat', '/sdcard/JbpTweak/file/getprop.out']"
+    }
+  }
+}

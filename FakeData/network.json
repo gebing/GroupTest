@@ -1,0 +1,42 @@
+{
+  "_remark": {
+    "modelConfig":  "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig": "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":   "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig": "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":   "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "logAll":       "【通用参数】是否Log所有调用。缺省：false。为避免产生过多的LOG，一般设置为false",
+    "hookConfig.bluetoothMac": "伪装的蓝牙设备的MAC地址",
+    "hookConfig.networkList":  "伪装的网卡信息对象。其中：键名为网卡名，键值为网卡MAC地址",
+    "hookConfig.wifiConnect":  "伪装的WIFI是否连接。如果WIFI为未连接，则其他WIFI和AP相关参数无效。如果为true，则wlan0和wifiIp应该有值；如果为false，则rmnet0和mobileIp应该有值",
+    "hookConfig.wifiIp":       "伪装的WIFI本机IP地址。如果WIFI为已连接，则此参数必须存在，否则无效",
+    "hookConfig.mobileIp":     "伪装的3G/4G本机IP地址。如果WIFI为未连接，则此参数必须存在，否则无效",
+    "hookConfig.apMac":        "伪装的WIFI连接AP的MAC地址",
+    "hookConfig.apList":       "伪装的WIFI扫描AP信息对象的数组。注意：数组第一个值为当前连接的AP；数组应按照信号强度降序排列；AP信息对象的ssid必须是以括号包裹的字符串",
+    "hookConfig.dnsList":      "伪装的网络连接对应的dns地址的数组"
+  },
+  "logAll": false,
+  "userConfig": {
+    "bluetoothMac": "14:0e:3d:89:8f:1c",
+    "networkList": {
+      "p2p0": "7a:02:f8:fc:f0:37",
+      "dummy0": "da:13:f4:2f:2c:34",
+      "rmnet0": "b6:5b:a1:4d:ca:73",
+      "wlan0": "78:02:f8:fc:f0:37"
+    }
+  },
+  "randomConfig": {
+    "wifiConnect": true,
+    "wifiIp": "192.168.100.10",
+    "mobileIp": "10.207.175.141",
+    "apMac": "c4:ff:1f:ab:c4:a7",
+    "apList": [
+      { "ssid": "\"CloudAp\"", "bssid": "78:02:f8:fc:f0:81", "caps": "[WEP][ESS]", "level": -61, "frequency": 5805, "tsf": 10000 },
+      { "ssid": "\"MyWifi1\"", "bssid": "78:02:f8:fc:f0:82", "caps": "[WPA-PSK-CCMP][ESS]", "level": -70, "frequency": 2417, "tsf": 20000},
+      { "ssid": "\"MyWifi2\"", "bssid": "78:02:f8:fc:f0:83", "caps": "[WPA2-PSK-CCMP][ESS]", "level": -75, "frequency": 5200, "tsf": 30000},
+      { "ssid": "\"MyWifi3\"", "bssid": "78:02:f8:fc:f0:84", "caps": "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]", "level": -80, "frequency": 2437, "tsf": 30000},
+      { "ssid": "\"MyWifi4\"", "bssid": "78:02:f8:fc:f0:85", "caps": "[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]", "level": -85, "frequency": 5745, "tsf": 30000}
+    ],
+    "dnsList": ["114.114.114.114"]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_remark": {
+    "_remark1":     "由于文件操作调用非常频繁，因此建议在伪装模式下将unhookFiles设置为null提高处理速度，同时尽量减少hideFileMap的数量",
+    "hookFileMap":  "【伪装参数】伪装文件的配置对象，键名为原始文件的全路径或名称，键值为伪装文件的相对路径，null表示伪装文件不存在",
+    "hookFileData": "【伪装参数】伪装文件的内容对象，键名为伪装文件的相对路径，键值为伪装文件的内容，null表示不写入伪装文件",
+    "hideFileMap":  "【伪装参数】隐藏文件的配置对象，键名为原始文件的全路径的包含内容，键值为是否隐藏匹配的文件",
+    "cmdConfig":    "【伪装参数】伪装Shell命令的配置对象",
+    "hookJava":     "【探测参数】是否拦截Java文件访问相关函数",
+    "unhookLibs":   "【探测参数】不拦截的so模块名的配置数组。其中：值为不包含路径的so模块全名",
+    "unhookFiles":  "【探测参数】不拦截的文件名称的配置数组。其中：值为文件名包含的字符串或以'eval:'开始的正则表达式",
+    "cmdConfig.hookCmdMap":  "伪装Shell命令的配置对象。其中：键名为shell命令的匹配条件，键值为shell命令的伪装命令。以'eval:'开始的字符串为计算表达式，表达式中变量v为命令行字符串，变量cmd为命令行数组",
+    "cmdConfig.hookTimeout": "执行Shell命令的超时时间。单位：毫秒。由于Frida执行Shell命令可能被卡死，超时未开始执行的命令会被杀死"
+  },
+  "hookFileMap": {
+  },
+  "hookFileData": {
+  },
+  "hideFileMap": {
+  },
+  "cmdConfig": {
+    "hookCmdMap": {
+      "eval: matchCmd(v, 'cat ')": "eval: patchCmd(cmd, patchChangeArgs(null, staticFunc(mapFile, 3, file, path)))"
+    }
+  }
+}

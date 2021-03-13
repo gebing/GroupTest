@@ -1,0 +1,43 @@
+{
+  "_remark": {
+    "modelConfig":   "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig":  "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":    "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig":  "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":    "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "fileConfig":    "【伪装参数】伪装文件和目录的配置",
+    "cmdConfig":     "【伪装参数】伪装Shell命令的配置",
+    "hookConfig.hideApp":      "隐藏App应用的配置数组。其中：值为App应用包名包含的字符串或以'eval:'开始的正则表达式",
+    "fileConfig.hookFileMap":  "伪装文件的配置对象，键名为原始文件的全路径或名称，键值为伪装文件的相对路径，null表示伪装文件不存在",
+    "fileConfig.hookFileData": "伪装文件的内容对象，键名为伪装文件的相对路径，键值为伪装文件的内容，null表示不写入伪装文件",
+    "fileConfig.hideFileMap":  "隐藏文件的配置对象，键名为原始文件的全路径的包含内容，键值为是否隐藏匹配的文件",
+    "cmdConfig.hookCmdMap":    "伪装Shell命令的配置对象。其中：键名为shell命令的匹配条件，键值为shell命令的伪装命令。以'eval:'开始的字符串为计算表达式，表达式中变量v为命令行字符串，变量cmd为命令行数组",
+    "cmdConfig.hookTimeout":   "执行Shell命令的超时时间。单位：毫秒。由于Frida执行Shell命令可能被卡死，超时未开始执行的命令会被杀死"
+  },
+
+
+  "systemConfig": {
+    "_remark": "手机型号通用信息，即相同手机型号共同的设备信息",
+    "systemApp": [
+
+    ]
+  },
+  "userConfig": {
+    "_remark": "用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "android_id": "978a13d910b20365"
+  },
+  "randomConfig": {
+    "_remark": "用户手机随机信息，即用户在不同时间的设备信息",
+    "screen_brightness": "eval: s(random(100, 150))"
+  },
+  "hideApps": [
+    "de.robv.android.xposed.installer", "com.touchsprite.android",
+    "com.soft.controllers", "com.noshufou.android.su", "com.noshufou.android.su.elite", "eu.chainfire.supersu",
+    "com.koushikdutta.superuser", "com.thirdparty.superuser", "com.yellowes.su", "com.koushikdutta.rommanager",
+    "com.koushikdutta.rommanager.license", "com.dimonvideo.luckypatcher", "com.chelpus.lackypatch",
+    "com.ramdroid.appquarantine", "com.ramdroid.appquarantinepro", "com.devadvance.rootcloak", "com.devadvance.rootcloakplus",
+    "com.saurik.substrate", "com.zachspong.temprootremovejb", "com.amphoras.hidemyroot",
+    "com.amphoras.hidemyrootadfree", "com.formyhm.hiderootPremium", "com.formyhm.hideroot", "me.phh.superuser",
+    "eu.chainfire.supersu.pro", "com.kingouser.com"
+  ]
+}

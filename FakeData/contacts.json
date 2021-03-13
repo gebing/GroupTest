@@ -1,0 +1,30 @@
+{
+  "_remark": {
+    "modelConfig":  "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig": "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":   "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig": "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":   "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "hookUri":      "【通用参数】拦截的内容uri的配置对象。其中：键名为拦截的内容uri，键值为对应伪装记录的名称",
+    "unhookUri":    "【探测参数】不拦截的内容uri的配置数组。其中：值为uri包含的字符串或以'eval:'开始的正则表达式",
+    "hookConfig.contact": "伪装的通讯录数组",
+    "hookConfig.call":    "伪装的通话记录数组",
+    "hookConfig.sms":     "伪装的短信记录数组"
+  },
+  "randomConfig": {
+    "contact": [
+      {"display_name":  "abcd", "data1": "+8613901234567"}
+    ],
+    "call": [
+      {"name":  "abcd", "number": "+8613901234567", "date": 12345678, "type": 1, "duration": 10}
+    ],
+    "sms": [
+      {"address": "+8613901234567", "body": "hello", "date": 12345678, "type": 1}
+    ]
+  },
+  "hookUri": {
+    "content://com.android.contacts/data/phones": "contacts",
+    "content://call_log/calls": "call",
+    "content://sms": "sms"
+  }
+}

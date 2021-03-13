@@ -1,0 +1,22 @@
+{
+  "_remark": {
+    "modelConfig":    "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig":   "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":     "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig":   "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":     "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "unhookSettings": "【探测参数】不拦截的Settings参数的配置数组。其中：值为Settings名包含的字符串或以'eval:'开始的正则表达式",
+    "hookConfig.adb_enabled":       "伪装ADB未连接",
+    "hookConfig.android_id":        "伪装AndroidId参数。其中：值为对应参数值或以'eval:'开始的计算表达式",
+    "hookConfig.screen_brightness": "伪装屏幕亮度。其中：值为对应参数值或以'eval:'开始的计算表达式"
+  },
+  "modelConfig": {
+    "adb_enabled": "0"
+  },
+  "userConfig": {
+    "android_id": "978a13d910b20365"
+  },
+  "randomConfig": {
+    "screen_brightness": "eval: s(random(100, 150))"
+  }
+}

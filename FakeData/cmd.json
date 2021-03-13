@@ -1,0 +1,9 @@
+{
+  "_remark": {
+    "hookCmdMap":  "【伪装参数】伪装Shell命令的配置对象。其中：键名为shell命令的匹配条件，键值为shell命令的伪装命令。以'eval:'开始的字符串为计算表达式，表达式中变量v为命令行字符串，变量cmd为命令行数组",
+    "hookTimeout": "【通用参数】执行Shell命令的超时时间。单位：毫秒。由于Frida执行Shell命令可能被卡死，超时未开始执行的命令会被杀死"
+  },
+  "hookCmdMap": {
+  },
+  "hookTimeout": 2000
+}

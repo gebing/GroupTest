@@ -1,0 +1,52 @@
+{
+  "_remark": {
+    "androidHttp":          "【通用参数】是否拦截并记录Android4.4版本后内置的HTTP库的通讯及对应的配置对象",
+    "githubOkhttp3":        "【通用参数】是否拦截并记录Github的okhttp3的HTTP库的通讯及对应的配置对象",
+    "githubOkhttp2":        "【通用参数】是否拦截并记录Github的okhttp2的HTTP库的通讯及对应的配置对象。只有在使用到此HTTP库时disable才为false",
+    "androidOkhttp":        "【通用参数】是否拦截并记录Android4.4版本后内置的okhttp2库的通讯及对应的配置对象。只有在使用到此HTTP库时disable才为false",
+    "hookRequest":          "【拦截参数】匹配HTTP请求并处理的配置对象。其中：键名为HTTP请求字符串包含的字符串或以'eval:'开始的计算表达式，键值为配置对象。表达式中变量v为HTTP请求字符串，格式为：'方法 URL'",
+    "unhookRequest":        "【探测参数】匹配HTTP请求并不拦截/记录的配置对象。其中：键名为HTTP请求字符串包含的字符串或以'eval:'开始的计算表达式，键值为true则不拦截/记录相关请求。表达式中变量v为HTTP请求字符串，格式为：'方法 URL'",
+    "outputLog":            "【通用参数】拦截日志的输出文件名。null表示输出到标准日志输出",
+    "hideRequestHeaders":   "【通用参数】是否隐藏记录HTTP请求的Header数据",
+    "hideRequestContent":   "【通用参数】是否隐藏记录HTTP请求的Content数据",
+    "hideResponseHeaders":  "【通用参数】是否隐藏记录HTTP应答的Header数据",
+    "hideResponseContent":  "【通用参数】是否隐藏记录HTTP应答的Content数据",
+    "githubOkhttp3.okhttp3.OkHttpClient":             "okhttp3对应OkHttpClient类的全名。只有在okhttp3类名被混淆后，才需要设置此参数",
+    "githubOkhttp3.okio.Buffer":                      "okio3对应Buffer类的全名。只有在okio3类名被混淆后，才需要设置此参数",
+    "githubOkhttp2.com.squareup.okhttp.OkHttpClient": "okhttp2对应OkHttpClient类的全名。只有在okhttp2类名被混淆后，才需要设置此参数",
+    "githubOkhttp2.com.squareup.okio.Buffer":         "okio2对应Buffer类的全名。只有在okio2类名被混淆后，才需要设置此参数",
+    "hookRequest.xxxxx.decodeReqUrl":                 "对应HTTP请求匹配条件的HTTP请求URL的解码配置。一般为以'eval:'开始的计算表达式，用于解码加密的URL内容。表达式中变量v为HTTP请求URL字符串",
+    "hookRequest.xxxxx.decodeReqBinary":              "对应HTTP请求匹配条件的HTTP请求内容的Byte数组的解码配置。一般为以'eval:'开始的计算表达式，用于解码加密的二进制内容。表达式中变量v为HTTP请求内容的byte数组",
+    "hookRequest.xxxxx.decodeReqString":              "对应HTTP请求匹配条件的HTTP请求内容的字符串的解码配置。一般为以'eval:'开始的计算表达式，用于解码加密的文本内容。表达式中变量v为HTTP请求内容的字符串",
+    "hookRequest.xxxxx.decodeResBinary":              "对应HTTP请求匹配条件的HTTP应答内容的byte数组的解码配置。一般为以'eval:'开始的计算表达式，用于解码加密的二进制内容。表达式中变量v为HTTP应答内容的byte数组",
+    "hookRequest.xxxxx.decodeResString":              "对应HTTP请求匹配条件的HTTP应答内容的字符串的解码配置。一般为以'eval:'开始的计算表达式，用于解码加密的文本内容。。表达式中变量v为HTTP应答内容的字符串"
+  },
+  "outputLog": "http",
+  "androidHttp": {
+    "disable": false
+  },
+  "apacheHttp": {
+    "disable": true
+  },
+  "githubOkhttp3": {
+    "disable": false,
+    "okhttp3.OkHttpClient": "okhttp3.OkHttpClient",
+    "okio.Buffer": "okio.Buffer"
+  },
+  "githubOkhttp2": {
+    "disable": true,
+    "com.squareup.okhttp.OkHttpClient": "com.squareup.okhttp.OkHttpClient",
+    "com.squareup.okio.Buffer": "com.squareup.okio.Buffer"
+  },
+  "androidOkhttp": {
+    "disable": true
+  },
+  "hideRequestHeaders": 0,
+  "hideRequestContent": 0,
+  "hideResponseHeaders": 0,
+  "hideResponseContent": 0,
+  "hookRequest": {
+  },
+  "unhookRequest": {
+  }
+}

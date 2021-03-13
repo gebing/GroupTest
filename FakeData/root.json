@@ -1,0 +1,47 @@
+{
+  "_remark": {
+    "modelConfig":   "【伪装参数】手机型号通用信息，即所有相同手机型号共同的设备信息",
+    "systemConfig":  "【伪装参数】手机系统通用信息，即相同手机型号相同系统版本共同的设备信息",
+    "userConfig":    "【伪装参数】用户手机特定信息，即相同手机型号不同用户的设备信息",
+    "randomConfig":  "【伪装参数】用户手机随机信息，即用户手机在不同时间的设备信息",
+    "hookConfig":    "【伪装参数】合并modelConfig、systemConfig、userConfig和randomConfig后的拦截配置",
+    "fileConfig":    "【伪装参数】伪装文件和目录的配置",
+    "cmdConfig":     "【伪装参数】伪装Shell命令的配置",
+    "unhookClasses": "【探测参数】不拦截的Java类的配置数组。其中：值为Java类全名包含的字符串或以'eval:'开始的正则表达式",
+    "hookConfig.hideClass":    "隐藏Java类的配置数组。其中：值为Java类全名包含的字符串或以'eval:'开始的正则表达式",
+    "hookConfig.hideJar":      "隐藏Jar包的配置数组。其中：值为Jar全路径名包含的字符串或以'eval:'开始的正则表达式",
+    "hookConfig.hideExe":      "隐藏执行程序的配置数组。其中：值为不包含路径名的执行程序的名称",
+    "fileConfig.hookFileMap":  "伪装文件的配置对象，键名为原始文件的全路径或名称，键值为伪装文件的相对路径，null表示伪装文件不存在",
+    "fileConfig.hookFileData": "伪装文件的内容对象，键名为伪装文件的相对路径，键值为伪装文件的内容，null表示不写入伪装文件",
+    "fileConfig.hideFileMap":  "隐藏文件的配置对象，键名为原始文件的全路径的包含内容，键值为是否隐藏匹配的文件",
+    "cmdConfig.hookCmdMap":    "伪装Shell命令的配置对象。其中：键名为shell命令的匹配条件，键值为shell命令的伪装命令。以'eval:'开始的字符串为计算表达式，表达式中变量v为命令行字符串，变量cmd为命令行数组",
+    "cmdConfig.hookTimeout":   "执行Shell命令的超时时间。单位：毫秒。由于Frida执行Shell命令可能被卡死，超时未开始执行的命令会被杀死"
+  },
+  "hookConfig": {
+    "hideClass": ["eval: /^de\\.robv\\.android\\.xposed\\./"],
+    "hideJar": ["XposedBridge.jar"],
+    "hideExe": ["busybox", "su", ".tmpsu", "daemonsu"]
+  },
+  "fileConfig": {
+    "hookFileMap": {
+    },
+    "hideFileMap": {
+      "com.touchsprite.android": 1,
+      "/sdcard/TouchSprite": 1
+    }
+  },
+  "cmdConfig": {
+    "hookCmdMap": {
+      "eval: matchCmd(v, 'pm list packages')": "eval: appendCmd(cmd, appendFilterMsg(Object.keys(app)))",
+      "eval: matchCmd(v, 'pm dump')": "eval: cmd",
+      "eval: matchCmd(v, 'pm path ')": "eval: patchCmd(cmd, patchChangeArgs(null, app))",
+      "eval: matchCmd(v, 'ps')": "eval: appendCmd(cmd, appendFilterMsg(Object.keys(proc)))",
+      "eval: matchCmd(v, 'which ')": "eval: patchCmd(cmd, patchChangeArgs(null, staticFunc(mapFile, 3, file, path)))",
+      "eval: matchCmd(v, 'type ')": "eval: patchCmd(cmd, patchChangeArgs(null, staticFunc(mapFile, 3, file, path)))",
+      "eval: matchCmd(v, 'cat ')": "eval: patchCmd(cmd, patchChangeArgs(null, staticFunc(mapFile, 3, file, path)))",
+      "eval: matchCmd(v, 'busybox')": "eval: patchCmd(cmd, patchChangeCmd('fake.cmd'))",
+      "eval: matchCmd(v, '.tmpsu')": "eval: patchCmd(cmd, patchChangeCmd('fake.cmd'))",
+      "eval: matchCmd(v, 'su')": "eval: patchCmd(cmd, patchChangeCmd('fake.cmd'))"
+    }
+  }
+}
